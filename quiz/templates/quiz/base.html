@@ -1,0 +1,37 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Quiz App</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+
+        <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa:400,700|Lato|Pacifico|Roboto+Slab|Roboto:400,400i,500,700" rel="stylesheet">
+        <script src="https://use.fontawesome.com/a422601e79.js"></script>
+      </head>
+
+
+    <body>
+        <div class="page-header">
+
+            <h1><a href="/home/">Quiz</a></h1>
+        </div>
+        <div class="content container">
+
+
+              {% block content %}
+              {% endblock %}
+
+              {% block more %}
+              {% endblock %}
+
+
+            </div>
+
+
+
+
+    </body>
+</html>

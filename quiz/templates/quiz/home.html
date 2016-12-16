@@ -1,0 +1,8 @@
+{% extends 'quiz/base.html'%}
+
+{% block content %}
+
+{% for question in questions %}
+<div class ="qtext" style="display:inline-block; background-color:grey;c font-color:white;"> <a style="text-decoration:none;"href="">{{question.name}}<br>{{question.points}}</div>
+  {% endfor %}
+{% endblock %}
