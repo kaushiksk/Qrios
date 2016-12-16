@@ -20,6 +20,7 @@
         </div>
         <div class="content container">
 
+             {% if user.is_authenticated %}<div id="nav_top_right"><p><a href="/logout/">Logout</a></p></div>{% endif %}
 
               {% block content %}
               {% endblock %}
