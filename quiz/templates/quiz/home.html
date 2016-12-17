@@ -3,6 +3,18 @@
 {% block content %}
 
 {% for question in questions %}
-<div class ="qtext" style="display:inline-block; background-color:grey;c font-color:white;"> <a style="text-decoration:none;"href="">{{question.name}}<br>{{question.points}}</div>
+{% if not question in request.user.quizzer.answered.all %}
+<a class="pop" href="{% url 'quiz:detail' question.pk %}">
+<div class ="q text">
+{% else %}
+<div class ="ans text">
+{% endif %}
+
+    {{question.name}}<br>{{question.points}}
+  </div>
+{% if not question in request.user.quizzer.answered.all %}
+</a>
+{% endif %}
   {% endfor %}
+  <div class="popup"></div>
 {% endblock %}

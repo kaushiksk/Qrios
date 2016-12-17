@@ -1,0 +1,10 @@
+{% extends 'quiz/base.html'%}
+
+{% block content %}
+
+{% for quizzer in quizzers %}
+{% if not quizzer.user.pk == 1 %}
+<div> {{quizzer.name}}  {{quizzer.points}}</div>
+{% endif %}
+  {% endfor %}
+{% endblock %}

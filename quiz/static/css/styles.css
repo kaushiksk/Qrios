@@ -1,0 +1,19 @@
+.text{
+  display:inline-block;
+
+  color:white;
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+}
+.q{
+  background-color:grey;
+}
+.ans{
+  background-color:yellow;
+}
+
+* a, * a:link, * a:hover, * a:visited{
+  color:inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,18 @@
+
+
+{% block content %}
+<div>{{question.name}}</div>
+<div>{{question.text}}</div>
+<div>{{question.points}}</div>
+<form action="{% url 'quiz:answer' question.pk %}" method="post" autocomplete="off">
+{% csrf_token %}
+{% if form.errors %}<p>Incorrect Answer</p>{% endif %}
+<div class="register_div">
+        {% if form.answer.errors %}<p class="error">{{ form.answer.errors }}</p>{% endif %}
+        {% if error_msg %}<p class="error">{{ error_msg }}</p>{% endif %}
+        <p>{{ form.answer}}</p>
+</div>
+<p><input type="submit" alt="register" value="Submit"/></p>
+</form>
+
+{% endblock %}

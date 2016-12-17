@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from quizzer.forms import RegistrationForm,LoginForm
 from django.contrib.auth.models import User
+from django.urls import reverse
 from .models import Quizzer
 from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 
 def QuizzerRegistration(request):
         if request.user.is_authenticated():
-                return HttpResponseRedirect('/home/')
+                return HttpResponseRedirect(reverse('quiz:home'))
         if request.method == 'POST':
                 form = RegistrationForm(request.POST)
                 if form.is_valid():
@@ -17,7 +18,7 @@ def QuizzerRegistration(request):
                         user.save()
                         quizzer = Quizzer(user=user, name=form.cleaned_data['name'])
                         quizzer.save()
-                        return HttpResponseRedirect('/home/')
+                        return HttpResponseRedirect(reverse('quiz:home'))
                 else:
                         return render(request,'quizzer/register.html', context = {'form': form})
 
@@ -38,7 +39,7 @@ def LoginRequest(request):
             quizzer = authenticate(username=username, password=password)
             if quizzer is not None :
                 login(request,quizzer)
-                return HttpResponseRedirect('/home/')
+                return HttpResponseRedirect(reverse('quiz:home'))
             else:
                 return render(request,'quizzer/login.html', context = {'form': form})
         else:
